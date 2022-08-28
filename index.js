@@ -1,6 +1,22 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  let sum = [];
+
+let hashTable = {};
+
+for (let i=0; i<array.length; i++){
+  let sumMinus= target-array[i];
+  
+  if (hashTable[sumMinus.toString()] !== undefined){
+    sum.push([array[i]],sumMinus);
+    return true;
+  }
+  hashTable[array[i].toString()] = array[i];
 }
+return false;
+}
+hasTargetSum([3, 8, 12, 4, 11, 7], 10);
+
 
 /* 
   Write the Big O time complexity of your function here
